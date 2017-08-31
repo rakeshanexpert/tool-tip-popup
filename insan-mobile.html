@@ -1,0 +1,287 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>The Insan Family</title>
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<style type="text/css">
+*{ margin:0; padding:0}
+body{font-family: 'Roboto', sans-serif; padding:0; margin:0}
+.insan-wrapper{width:320px; margin:0 auto;}
+.insan-main{float:left; width:100%;}
+.insan-main .heading{background-color:#ffd820; float:left; width:100%; min-height:58px; margin-bottom:2px;}
+.insan-main .heading h2{font:900 31px/57px 'Roboto', sans-serif; display:block; text-align:center; text-transform:uppercase; margin:0}
+.insan-main .top-row{float:left; width:100%; border-top:2px dashed #c0c0c0; background:url(http://media2.intoday.in/indiatoday/resources/images/ramrahim/top-bg001.jpg) no-repeat center 25px; padding-top:25px; min-height:914px;}
+.insan-main ul{list-style:none; margin:0; padding:0; float:left; width:100%;position: relative}
+.insan-main ul li{float:left; width:81px;}
+.insan-main ul li img{border-radius:100%;}
+.insan-main ul li span{display:block; text-align:center;}
+.insan-main ul li span{font:600 14px/17px 'Roboto', sans-serif; color:#000; display:block; text-align:center; margin-top:5px; text-transform:uppercase;}
+.insan-main ul li span strong{color:#8b8b8b; font-weight:normal; display:block; text-transform:capitalize}
+.insan-main ul.row01{margin-top:5px;}
+.insan-main ul.row01 li{width:93px; margin-left:68px;}
+.insan-main ul.row01 li:first-child{margin-left:30px;}
+.insan-main ul.row02{margin-top:35px;}
+.insan-main ul.row02 li{margin-left:65px;}
+.insan-main ul.row02 li:first-child{margin-left:51px;}
+.insan-main ul.row03{margin-top:5px;}
+.insan-main ul.row03 li{margin-left:65px;}
+.insan-main ul.row03 li:first-child{margin-left:51px;}
+.insan-main ul.row04{margin-top:9px;}
+.insan-main ul.row04 li{margin-left:65px;}
+.insan-main ul.row04 li:first-child{margin-left:51px;}
+.insan-main ul.row05{margin-top:-2px;}
+.insan-main ul.row05 li{margin-left:122px;}
+
+.insan-main .bottom-section{float:left; width:100%; margin:15px 0;}
+.insan-main .bottom-section .heading{background-color:#ffd820; float:left; width:100%; min-height:48px;}
+.insan-main .bottom-section .heading h3{font:700 31px/47px 'Roboto', sans-serif; color:#000; text-transform:uppercase; display:block; text-align:center; margin:0;}
+.insan-main .bottom-section .grand{float:left; width:100%;}
+.insan-main .bottom-section .grand ul{list-style:none; margin:0; padding:0;}
+.insan-main .bottom-section .grand ul li{width:auto; display:inline; background:url(http://media2.intoday.in/indiatoday/resources/images/ramrahim/box-bg.jpg) no-repeat 0 0; padding:6px; margin:15px 0 0 11px;}
+.insan-main .bottom-section .grand ul li img{border-radius:100%;}
+.insan-main .bottom-section .grand ul li span{font:600 14px/17px 'Roboto', sans-serif; color:#000; display:block; text-align:center; margin-top:5px; text-transform:uppercase;}
+.insan-main .bottom-section .grand ul li:nth-child(4){margin-left:65px;}
+
+
+.firstBox{ float: left; width:100%;}
+.popupMainContainer{ position:absolute; top:30px; left:50%; top:50%;/*transform: translate(-50%, -50%);*/ z-index:99; transition: 0.5s; height:220px; width:230px; background:#ffd820; border-radius:5px;box-shadow: 0px 3px 20px #9d9d9d; padding:12px; box-sizing: border-box; margin-left:-115px;}
+span.closePopup{ position: absolute; right:-2px; top:-9px; color:#a18707 !important; font:16px Arial, Helvetica, sans-serif !important; font-weight: bold !important; cursor: pointer; padding:8px; color:#756100}
+.popupContentBox{ float: left; width:100%}
+.popupContentBox img{ border:3px solid #e5e5e5; border-radius:100%; float: left; margin-right:10px;}
+.popupContentBox p{ float: left; width:100%; height:10px;}
+.visible { opacity: 0; transition: 0.5s}
+.popupContentBox img{ width:49px; width:49px;}
+.popupContentBox h2{font:700 14px 'Roboto', sans-serif; color:#000; text-align: left; text-transform: uppercase}
+.popupContentBox h4{font:400 13px 'Roboto', sans-serif; color:#756100; text-align: left; margin-top:3px;}
+.popupContentBox p{font:400 13px 'Roboto', sans-serif; color:#000; text-align: left; margin-top:10px;}
+.popupContentBox h2 strong{ display:  block;    color: #756100;font: 400 13px 'Roboto', sans-serif;
+    font-weight: normal;  text-transform: capitalize; margin-top:3px; }
+
+</style>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		var img = $(".firstBox > img").attr('src')
+		
+		$('.firstBox > img').click(function(){
+			var srcImg = $(this).attr('src');
+			var targetImg = $(this).attr('rel');
+			$("#"+targetImg).attr('src',srcImg );
+			
+			var txt = $(this).next().siblings("span").html()
+      		$(".popupContentBox h2").html(txt)
+			
+			$('.popupMainContainer').hide();
+			$(this).next('div').show();
+		});
+		
+		$('.closePopup').click(function(){
+			$('.popupMainContainer').hide();
+		});
+	});
+</script>
+
+</head>
+
+<body>
+<div class="insan-wrapper">
+  <div class="insan-main">
+    <div class="heading">
+      <h2>The Insan Family</h2>
+    </div>
+    <div class="top-row">
+      <ul class="row01">
+        <li class="firstBox"><img src="http://media2.intoday.in/indiatoday/resources/images/ramrahim/thumb001.jpg" rel="thumb001" alt="">
+        	<div class="popupMainContainer" style="display:none">
+                <span class="closePopup">X</span>
+                <div class="popupContentBox">
+                    <img src="" alt="" id="thumb001" />
+                    <h2></h2>
+                    <p>Deceased; Landlord from Rajasthan’s Sri Ganganagar district</p>
+                </div>
+            </div>
+        <span>Magar Singh <strong>Father</strong></span></li>
+        <li class="firstBox"><img src="http://media2.intoday.in/indiatoday/resources/images/ramrahim/thumb002.jpg" rel="thumb002" alt="">
+        	<div class="popupMainContainer" style="display:none">
+                <span class="closePopup">X</span>
+                <div class="popupContentBox">
+                    <img src="" alt="" id="thumb002" />
+                   <h2></h2>
+                    <p>Age not known, but lives at Dera Sacha Sauda.</p>
+                </div>
+            </div>
+        <span>Naseeb Kaur<strong>Mother</strong></span></li>
+      </ul>
+      <ul class="row02">
+        <li class="firstBox"><img src="http://media2.intoday.in/indiatoday/resources/images/ramrahim/thumb003.jpg" rel="thumb003" alt="">
+        	<div class="popupMainContainer" style="display:none">
+                <span class="closePopup">X</span>
+                <div class="popupContentBox">
+                    <img src="" id="thumb003" alt="" />
+                    <h2></h2>
+                    <p>Headed Dera Sacha Sauda till his conviction and sentencing in two rape cases in August.</p>
+                </div>
+            </div>
+        <span>Ram Rahim
+          Singh</span></li>
+        <li class="firstBox"><img src="http://media2.intoday.in/indiatoday/resources/images/ramrahim/thumb004.jpg" rel="thumb004" alt="">
+        	<div class="popupMainContainer" style="display:none">
+                <span class="closePopup">X</span>
+                <div class="popupContentBox">
+                    <img src="" id="thumb004" alt="" />
+                   <h2></h2>
+                    <p>Age not known, but lives at Dera Sacha Sauda as a sadhvi.</p>
+                </div>
+            </div>
+        <span>Harjeet Kaur <strong>Wife</strong></span></li>
+      </ul>
+      <ul class="row03">
+        <li class="firstBox"><img src="http://media2.intoday.in/indiatoday/resources/images/ramrahim/thumb005.jpg" rel="thumb005" alt="">
+        	<div class="popupMainContainer" style="display:none">
+                <span class="closePopup">X</span>
+                <div class="popupContentBox">
+                    <img src="" id="thumb005" alt="" />
+                    <h2></h2>
+                    <p>Has been named as Ram Rahim's successor by grandmother Naseeb Kaur.</p>
+                </div>
+            </div>
+        <span>Jasmeet 
+          Singh <strong>Son</strong></span></li>
+        <li class="firstBox"><img src="http://media2.intoday.in/indiatoday/resources/images/ramrahim/thumb006.jpg" rel="thumb006" alt="">
+        	<div class="popupMainContainer" style="display:none">
+                <span class="closePopup">X</span>
+                <div class="popupContentBox">
+                    <img src="" id="thumb006" alt="" />
+                   <h2></h2>
+                    <p>Married to Jasmeet Singh, Husanpreet is the daughter of former Congress MLA from Bathinda, Harminder Singh Jassi.</p>
+                </div>
+            </div>
+        <span>Husanmeet 
+          Insan <strong>Daughter-in-law</strong></span></li>
+      </ul>
+      <ul class="row03">
+        <li class="firstBox"><img src="http://media2.intoday.in/indiatoday/resources/images/ramrahim/thumb007.jpg" rel="thumb007" alt="">
+        	<div class="popupMainContainer" style="display:none">
+                <span class="closePopup">X</span>
+                <div class="popupContentBox">
+                    <img src="" id="thumb007" alt="" />
+                    <h2></h2>
+                    <p>Both Amarpreet and her husband, Ruh-e-Meet, live at the Dera and have been assigned duties for the functioning of the Dera.</p>
+                </div>
+            </div>
+        <span>Amarpreet 
+          Insan <strong>Daughter</strong></span></li>
+        <li class=""><img src="http://media2.intoday.in/indiatoday/resources/images/ramrahim/thumb008.jpg" rel="thumb008" alt="">
+        	<div class="popupMainContainer" style="display:none">
+                <span class="closePopup">X</span>
+                <div class="popupContentBox">
+                    <img src="" id="thumb008" alt="" />
+                   <h2></h2>
+                    <p style="display:none">Some Text here1</p>
+                </div>
+            </div>
+        <span>Ruh-e-Meet 
+          Insan <strong>Son-in-law</strong></span></li>
+      </ul>
+      <ul class="row04">
+        <li class="firstBox"><img src="http://media2.intoday.in/indiatoday/resources/images/ramrahim/thumb009.jpg" rel="thumb009" alt="">
+        	<div class="popupMainContainer" style="display:none">
+                <span class="closePopup">X</span>
+                <div class="popupContentBox">
+                    <img src="" id="thumb009" alt="" />
+                   <h2></h2>
+                    <p>Both Charanpreet and her husband, Shan-e-Meet, live at the Dera and have been assigned duties for the functioning of the Dera.</p>
+                </div>
+            </div>
+        <span>Charanpreet 
+          Insan <strong>Daughter</strong></span></li>
+        <li class=""><img src="http://media2.intoday.in/indiatoday/resources/images/ramrahim/thumb010.jpg" rel="thumb010" alt="">
+        	<div class="popupMainContainer" style="display:none">
+                <span class="closePopup">X</span>
+                <div class="popupContentBox">
+                    <img src="" id="thumb010" alt="" />
+                  <h2></h2>
+                    <p style="display:none">Some Text here1</p>
+                </div>
+            </div>
+        <span>Shaan-e-Meet Insan <strong>Son-in-law</strong></span></li>
+      </ul>
+      <ul class="row05">
+        <li class="firstBox"><img src="http://media2.intoday.in/indiatoday/resources/images/ramrahim/thumb011.jpg" rel="thumb011" alt="">
+        	<div class="popupMainContainer" style="display:none">
+                <span class="closePopup">X</span>
+                <div class="popupContentBox">
+                    <img src="" alt="" id="thumb011" />
+                    <h2></h2>
+                    <p>Honeypreet is another contender for the post of Dera chief. Born Priyanka Taneja, Honeypreet is a divorced woman who Ram Rahim adopted as a daughter and who has been living with him since her divorce. She has also directed and produced all of Ram Rahim’s movies.</p>
+                </div>
+            </div>
+        <span>Honeypreet Insan <strong>Adopted daughter</strong></span></li>
+      </ul>
+    </div>
+    <div class="bottom-section">
+      <div class="heading">
+        <h3>Grandchildren</h3>
+      </div>
+      <div class="grand">
+        <ul>
+          <li class=""><img src="http://media2.intoday.in/indiatoday/resources/images/ramrahim/thumb012.jpg" rel="thumb012" alt="">
+          	<div class="popupMainContainer" style="display:none">
+                <span class="closePopup">X</span>
+                <div class="popupContentBox">
+                    <img src="thumb11" id="thumb012" alt="" />
+                   <h2></h2>
+                   
+                </div>
+            </div>
+          <span>Pearlmeet </span></li>
+          <li class=""><img src="http://media2.intoday.in/indiatoday/resources/images/ramrahim/thumb013.jpg" rel="thumb013" alt="">
+          	<div class="popupMainContainer" style="display:none">
+                <span class="closePopup">X</span>
+                <div class="popupContentBox">
+                    <img src="" alt="" id="thumb013"/>
+                   <h2></h2>
+                  
+                </div>
+            </div>
+          <span>Heartmeet </span></li>
+          <li class=""><img src="http://media2.intoday.in/indiatoday/resources/images/ramrahim/thumb014.jpg" rel="thumb014" alt="">
+          	<div class="popupMainContainer" style="display:none">
+                <span class="closePopup">X</span>
+                <div class="popupContentBox">
+                    <img src="" alt="" id="thumb014"/>
+                   <h2></h2>
+                  
+                </div>
+            </div>
+          <span>Sweetluck </span></li>
+          <li class=""><img src="http://media2.intoday.in/indiatoday/resources/images/ramrahim/thumb015.jpg" rel="thumb015" alt="">
+          	<div class="popupMainContainer" style="display:none">
+                <span class="closePopup">X</span>
+                <div class="popupContentBox">
+                    <img src="" id="thumb015" alt="" />
+                   <h2></h2>
+                   
+                </div>
+            </div>
+          <span>Sahib-e-Dil </span></li>
+          <li class=""><img src="http://media2.intoday.in/indiatoday/resources/images/ramrahim/thumb0016.jpg" rel="thumb0016" alt="">
+          	<div class="popupMainContainer" style="display:none">
+                <span class="closePopup">X</span>
+                <div class="popupContentBox">
+                    <img src="" alt="" id="thumb0016" />
+                   <h2></h2>
+                  
+                </div>
+            </div>
+          <span>Afsana-e-meet </span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

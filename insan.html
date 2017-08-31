@@ -1,0 +1,231 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>The Insan Family</title>
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900" rel="stylesheet">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<style type="text/css">
+*{ margin:0; padding:0}
+body{font-family: 'Roboto', sans-serif; padding:0; margin:0}
+.insan-wrapper{width:650px; margin:0 auto;}
+.insan-top{float:left; width:100%; background-color:#ffd820; min-height:104px; margin-bottom:1px;}
+.insan-top h2{font:900 54px/102px 'Roboto', sans-serif; color:#000; display:block; text-align:center; text-transform:uppercase; margin:0}
+
+.insan-main{float:left; width:100%; border:1px solid #898989; box-sizing:border-box; border-top:2px dashed #c0c0c0;}
+.insan-main .top-area{background:url(http://media2.intoday.in/indiatoday/resources/images/ramrahim/top-bg.jpg) no-repeat center top; float:left; width:100%; min-height:673px;}
+.insan-main ul{float:left; margin:0; padding:0; list-style:none;}
+.insan-main ul li{width:93px; float:left; margin-left:96px; text-align:center; cursor:pointer}
+.insan-main ul li img{border-radius:93px;}
+.insan-main ul li {text-decoration:none}
+.insan-main ul li span{font:600 14px/17px 'Roboto', sans-serif; color:#000; display:block; text-align:center; margin-top:8px; text-transform:uppercase;}
+.insan-main ul li span strong{color:#8b8b8b; font-weight:normal; display:block; text-transform:capitalize}
+
+.insan-main .top-area ul.row01{margin:25px 0 0 81px;}
+.insan-main .top-area ul.row02{margin:8px 0 0 181px;}
+.insan-main .top-area ul.row02 li{margin-left:90px;}
+.insan-main .top-area ul.row03{margin:54px 0 0 42px;}
+.insan-main .top-area ul.row03 li{margin-left:64px;}
+.insan-main .top-area ul.row03 li:first-child{margin-left:0;}
+.insan-main .top-area ul.row03 li:nth-child(3){margin-left:69px;}
+.insan-main .top-area ul.row03 li:nth-child(4){margin-left:55px;}
+.insan-main .top-area ul.row04{margin:0 0 0 134px;}
+.insan-main .top-area ul.row04 li{margin-left:64px;}
+.insan-main .top-area ul.row04 li:nth-child(2),.insan-main .top-area ul.row04 li:nth-child(3){cursor:auto;}
+
+
+.insan-main .bottom-area{float:left; width:100%;}
+.insan-main .bottom-area ul li{cursor:auto;}
+.insan-main .bottom-area .bottom-heading{float:left; width:auto; background-color:#ffd820; min-height:48px; margin-top:28px; margin-left:158px;}
+.insan-main .bottom-area .bottom-heading h3{font:900 32px/48px 'Roboto', sans-serif; color:#000; display:block; text-align:center; text-transform:uppercase; margin:0; padding:0 47px;}
+.insan-main .bottom-area .inner{background:url(http://media2.intoday.in/indiatoday/resources/images/ramrahim/bottom-bg.jpg) no-repeat center top; float:left; width:100%; min-height:129px;}
+.insan-main .bottom-area ul.row05{margin:27px 0 0 18px;}
+.insan-main .bottom-area ul.row05 li{margin-left:37px;}
+.insan-main .bottom-area ul.row05 li:first-child{margin-left:0;}
+.insan-main .bottom-area ul.row05 .popupMainContainer{top:-100px;}
+
+.insan-main .top-area ul.row03 li:last-child .popupMainContainer{left:-107px;}
+.insan-main .top-area ul.row04 li:last-child .popupMainContainer{left:-107px;}
+.insan-main .top-area ul.row02 li:last-child .popupMainContainer{left:-107px;}
+.insan-main .bottom-area ul.row05 li:last-child .popupMainContainer{left:-130px;} 
+
+.firstBox{ float: left; width:100%; position: relative}
+.popupMainContainer{ position: absolute; top:30px; left:0; z-index:99; transition: 0.5s; height:220px; width:230px; background:#ffd820; border-radius:5px;box-shadow: 0px 3px 20px #9d9d9d; padding:12px; box-sizing: border-box;}
+span.closePopup{ position: absolute; right:-2px; top:0px; color:#a18707 !important; font:16px Arial, Helvetica, sans-serif !important; font-weight: bold !important; cursor: pointer; padding:8px; color:#756100}
+.popupContentBox{ float: left; width:100%}
+.popupContentBox img{ border:3px solid #e5e5e5; border-radius:100%; float: left; margin-right:10px;}
+.popupContentBox p{ float: left; width:100%; height:10px;}
+.visible { opacity: 0; transition: 0.5s}
+.popupContentBox img{ width:49px; width:49px;}
+.popupContentBox h2{font:700 14px 'Roboto', sans-serif; color:#000; text-align: left; text-transform: uppercase}
+.popupContentBox h4{font:400 13px 'Roboto', sans-serif; color:#756100; text-align: left; margin-top:3px;}
+.popupContentBox p{font:400 13px 'Roboto', sans-serif; color:#000; text-align: left; margin-top:10px;}
+.popupContentBox h2 strong{ display:  block;    color: #756100;font: 400 13px 'Roboto', sans-serif;
+    font-weight: normal;  text-transform: capitalize; margin-top:3px; }
+.firstBox p{ display: none}	
+	
+	
+</style>
+	
+<script type="text/javascript">
+
+	$(document).ready(function(){
+		//Without json Data
+		
+		var img = $(".firstBox > img").attr('src')
+		
+		$('.firstBox > img').click(function(){
+			var srcImg = $(this).attr('src');
+			var targetImg = $(this).attr('rel');
+			$("#"+targetImg).attr('src',srcImg );
+			
+			var txt = $(this).next().siblings("span").html()
+      		$(".popupContentBox h2").html(txt)
+			
+			$('.popupMainContainer').hide();
+			$(this).next('div').show();
+		});
+		
+		$('.closePopup').click(function(){
+			$('.popupMainContainer').hide();
+		});
+		
+		
+	//Json Data Comming
+	
+	  $.ajax({
+		url: "http://localhost/ramrahim/data.json",
+		dataType: 'json',
+		success: function(resp) {
+		  var htmlData1 = '';
+		  var htmlData2 = '';
+		  var htmlData3 = '';
+		  var htmlData4 = '';
+    	  var htmlData5 = '';
+		  
+		  resp.forEach(function(element,index) {
+				if(index<2){
+					htmlData1 += '<li class="firstBox">'+ 
+					'<img src="http://media2.intoday.in/indiatoday/resources/images/ramrahim/'+element.image+'" data-id="' +index +'" alt="">' +
+					'<span>'+element.h2+'</span>'+'<p>'+ element.p +'</p></li>';
+				}
+				else if(index>=2 && index<4){
+					htmlData2 += '<li class="firstBox">'+ 
+					'<img src="http://media2.intoday.in/indiatoday/resources/images/ramrahim/'+element.image+'" data-id="' +index +'" alt="">' +
+					'<span>'+element.h2+'</span>'+'<p>'+ element.p +'</p></li>';
+				}
+					else if(index>=4 && index<8)
+				{
+					htmlData3 += '<li class="firstBox">'+ 
+					'<img src="http://media2.intoday.in/indiatoday/resources/images/ramrahim/'+element.image+'" data-id="' +index +'" alt="">' +
+					'<span>'+element.h2+'</span>'+'<p>'+ element.p +'</p></li>';
+				}
+				else if(index>=8 && index<11)
+				{
+				htmlData4 += '<li class="firstBox">'+ 
+					'<img src="http://media2.intoday.in/indiatoday/resources/images/ramrahim/'+element.image+'" data-id="' +index +'" alt="">' +
+					'<span>'+element.h2+'</span>'+'<p>'+ element.p +'</p></li>';	
+				}
+				else
+				{
+				htmlData5 += '<li class="firstBox">'+ 
+					'<img src="http://media2.intoday.in/indiatoday/resources/images/ramrahim/'+element.image+'" data-id="' +index +'" alt="">' +
+					'<span>'+element.h2+'</span>'+'<p>'+ element.p +'</p></li>';	
+				}
+				
+		  });	
+		  $('.row01').html(htmlData1);
+		  $('.row02').html(htmlData2);
+		  $('.row03').html(htmlData3);
+		  $('.row04').html(htmlData4);
+		  $('.row05').html(htmlData5);
+		  
+		  //For Popup Js
+		  $(".firstBox > img").click(function(){
+			  var currentimg = $(this).attr('src');
+			  var heading = $(this).siblings("span").html();
+			  var paragraph = $(this).siblings("p").html();
+			  
+			  var offSetTop = $(this).offset().top;
+			  var offSetLeft = $(this).offset().left;
+			  
+			  
+			  $(".popupMainContainer").css("display","block");
+			  $(".popupContentBox > img").attr('src',currentimg);
+			  $(".popupContentBox h2").html(heading);
+			  $(".popupContentBox p").html(paragraph);
+			 
+			
+			  //top - left Poup Position
+			 $(".popupMainContainer").css("top",offSetTop)
+			 $(".popupMainContainer").css("left",offSetLeft)
+			
+			 var bottoUl = $(".row05").offset().top;
+			 console.log(bottoUl)
+			 
+			 if(bottoUl>950){
+				// var topNum5 = number()
+				 $(".popupMainContainer").css("top",offSetTop-200)
+			 }
+			 
+		  })
+		  
+		 
+		},
+		error: function() {
+		  alert("error");
+		}
+	  }); 
+	  
+	 
+	  
+	  
+	  
+	  
+	         
+	});
+	
+	
+</script>
+
+
+</head>
+
+<body>
+
+<div class="popupMainContainer" style="display:none">
+    <span class="closePopup">X</span>
+    <div class="popupContentBox">
+        <img src="" alt="" />
+        <h2></h2>
+        <p></p>
+    </div>
+</div>
+
+<div class="insan-wrapper">
+  <div class="insan-top">
+    <h2>The Insan Family</h2>
+  </div>
+  <div class="insan-main">
+  
+    <div class="top-area">
+      <ul class="row01"></ul>
+      <ul class="row02"></ul>
+      <ul class="row03"></ul>
+      <ul class="row04"></ul>
+    </div>
+    
+    <div class="bottom-area">
+      <div class="bottom-heading">
+        <h3>Grandchildren</h3>
+      </div>
+      <div class="inner">
+        <ul class="row05">
+         
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
